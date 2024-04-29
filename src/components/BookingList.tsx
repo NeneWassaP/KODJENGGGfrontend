@@ -147,11 +147,11 @@ export default function BookingList ({session, profile}:{session:any, profile:an
                                     pending
                                 </div>
                             )}
-                            {reserve.status === 'pending'&& profile?.data.role === 'admin' &&(
+                            {/* {reserve.status === 'pending'&& profile?.data.role === 'admin' &&(
                                 <Link href={`/payment/${reserve._id}`}>
                                     <button className="px-3 py-1 text-white shadow-sm rounded-xl bg-[#F99417] absolute h-[40px] w-fit right-4 bottom-3">Upload</button>
                                 </Link>
-                            )}
+                            )} */}
                             {reserve.status === 'pending'&& profile?.data.role === 'hotelmanager' &&(
                                 <Link href={`/mybooking/approve/${reserve._id}`}>
                                     <button className="px-3 py-1 text-white shadow-sm rounded-xl bg-[#F99417] absolute h-[40px] w-fit right-4 bottom-3" onClick={() => {}}>
