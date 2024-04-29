@@ -11,8 +11,8 @@ import ReportPopup from "./Reportpopup";
 import getUserProfile from "@/libs/getUserProfile";
 
 export default function MoreOption(
-    {userid, rClean, rConvin, rFaci, rFood, rService, rWorth, rRating, rTitle, rComment, rid, hid,report} 
-    : {userid:string,rClean:boolean, rConvin:boolean, rFaci:boolean, rFood:boolean, rService:boolean, rWorth:boolean, rRating:number, rTitle:string, rComment:string, rid:string, hid:string,report:boolean}){
+    {userid, rClean, rConvin, rFaci, rFood, rService, rWorth, rRating, rTitle, rComment, rid, hid,profile} 
+    : {userid:string,rClean:boolean, rConvin:boolean, rFaci:boolean, rFood:boolean, rService:boolean, rWorth:boolean, rRating:number, rTitle:string, rComment:string, rid:string, hid:string,profile:any}){
     
 
     const { data: session } = useSession();
@@ -20,23 +20,23 @@ export default function MoreOption(
     const [isVisibleReport, setVisibleReport] = useState(false);
     const router = useRouter()
     const [showOptions, setShowOptions] = useState(false);
-    const [profile, setProfile] = useState<any>();
+    //const [profile, setProfile] = useState<any>();
 
-    useEffect(() => {
-        const fetchData = async () => {
-          try {
-            if (session && session.user.token){
-              const userProfile = await getUserProfile(session.user.token);
-              setProfile(userProfile);
-            }
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //       try {
+    //         if (session && session.user.token){
+    //           const userProfile = await getUserProfile(session.user.token);
+    //           setProfile(userProfile);
+    //         }
             
-          } catch (error) {
-            console.error("Error fetching data:", error);
-          }
-        };
+    //       } catch (error) {
+    //         console.error("Error fetching data:", error);
+    //       }
+    //     };
     
-        fetchData();
-      }, []);
+    //     fetchData();
+    //   }, []);
 
 
     const toggleOptions = () => {

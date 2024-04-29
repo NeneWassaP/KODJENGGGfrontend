@@ -74,7 +74,7 @@ export default function ReviewCard({tags,hid,profile}:{tags:Tags,hid:string, pro
                     rConvin={review.convenience} rFaci={review.facility} rFood={review.food}
                     rService={review.service} rWorth={review.worthiness} rRating={review.stars}
                     rTitle={review.title} rComment={review.comment} rid={review._id} hid={review.hotelid}
-                    report={review.report.length>=10}/>
+                    profile={profile}/>
                     }
                 </div>
     
