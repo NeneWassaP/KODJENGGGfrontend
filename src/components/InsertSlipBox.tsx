@@ -61,7 +61,7 @@ export default function InsertSlipBox({reserve}: {reserve:string}){
         }
 
         if(session && session.user.token){
-            fetch(`${process.env.BACKEND_URL}/api/v1/payment`, {
+            fetch(`${process.env.BACKEND_URL}/api/v1/payment`,{
                 method: "POST",
                 headers: {
                 authorization : `Bearer ${session.user.token}`,

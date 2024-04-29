@@ -11,6 +11,7 @@ import InputBase from '@mui/material/InputBase';
 import ReviewCard from "./ReviewCard";
 import { useEffect } from "react";
 import getReviews from "@/libs/getReview";
+import { profile } from "console";
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
     color: 'white',
@@ -25,7 +26,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export default function ReviewPanel({hid}:{hid:string}){
+export default function ReviewPanel({hid, profile}:{hid:string, profile:any}){
 
     const [cleanliness,setCleanliness] = useState(false);
     const [convenience,setConvenience] = useState(false);
@@ -141,7 +142,7 @@ export default function ReviewPanel({hid}:{hid:string}){
                 {/* <div >
                     <h1 className="text-black"> {`${worthiness} ${service} ${food} ${facility} ${convenience} ${cleanliness}` }</h1>
                 </div> */}
-            <ReviewCard tags={reviewTags} hid={hid}/>
+            <ReviewCard tags={reviewTags} hid={hid} profile={profile}/>
             </div>  
             
         </main>

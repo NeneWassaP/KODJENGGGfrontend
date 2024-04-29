@@ -5,8 +5,14 @@ import ReviewPanel from "@/components/ReviewPanel";
 import getRooms from "@/libs/getRooms";
 import RoomCatalog from "@/components/RoomCatalog";
 import ReduxProvider from "@/redux/ReduxProvider";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import getUserProfile from "@/libs/getUserProfile";
 export default async function HospitalDetailPage({params}:{params:{hid:string}}){
+    const sessionReady = await getServerSession(authOptions) ;
+    if ( !sessionReady || !sessionReady.user.token) return null
 
+    const profile = await getUserProfile(sessionReady.user.token)
     const hosDetail = await getHotel(params.hid)
     const roomDetail = await getRooms(params.hid)
 
@@ -56,7 +62,7 @@ export default async function HospitalDetailPage({params}:{params:{hid:string}})
                     Reserve this Hotel</button>
                 </Link>
             </div>
-            <ReviewPanel hid={params.hid}/>
+            <ReviewPanel hid={params.hid} profile={profile}/>
         </main>
     );
 }

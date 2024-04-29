@@ -16,11 +16,11 @@ import EditHotelReplyPopup from "./EditHotelReplyPopUp";
 import ReplyReviewButton from "./ReplyReviewButton";
 import { useAppSelector } from "@/redux/store"
 
-export default function ReviewCard({tags,hid}:{tags:Tags,hid:string}){
+export default function ReviewCard({tags,hid,profile}:{tags:Tags,hid:string, profile:any}){
     
     const [reviews, setReviews] = useState<ReviewJson>();
     const [hotelDetail, setHotelDetail] = useState<any>();
-    const [profile, setProfile] = useState<any>();
+    //const [profile, setProfile] = useState<any>();
     const {data:session} = useSession();
 
     function checkReport(ReportReview:ShowReviewItem){
@@ -33,10 +33,11 @@ export default function ReviewCard({tags,hid}:{tags:Tags,hid:string}){
     useEffect(() => {
       const fetchData = async () => {
         try {
-          if (session && session.user.token){
-            const userProfile = await getUserProfile(session.user.token);
-            setProfile(userProfile);
-          }
+            //console.log(session)
+        //   if (session && session.user.token){
+        //     const userProfile = await getUserProfile(session.user.token);
+        //     setProfile(userProfile);
+        //   }
           const [reviewsJson, hotelDetailData] = await Promise.all([
             getReviews(tags, hid),
             getHotel(hid),
