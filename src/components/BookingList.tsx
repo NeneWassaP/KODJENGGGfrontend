@@ -192,7 +192,7 @@ export default function BookingList ({session, profile}:{session:any, profile:an
                                 >Recheck</button></Link>
                             )}
                             {(reserve.status === 'disapproved' && profile?.data.role!=='hotelmanager')&&(
-                                <ContactPopUp rid={reserve._id} session={session} tel={reserve.hotel.tel}/>     
+                                <ContactPopUp rid={reserve._id} session={session} tel={reserve.hotel.tel} name={reserve.hotel.name}/>   
                             )}
                     </div>
                 ))
