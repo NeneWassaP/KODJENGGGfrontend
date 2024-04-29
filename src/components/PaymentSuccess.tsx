@@ -51,7 +51,7 @@ export default function PaymentSuccess({reserve}: {reserve:string}){
     return (
         <main className="w-[100%] flex flex-col items-center space-y-4">
             <div className="text-5xl font-semibold text-[#4D4C7D] text-center mt-[10%]">✅
-            Payment Succeessful</div>
+            Payment Successful</div>
             
             <div className="bg-[#4D4C7D] mb-10  rounded-lg w-[70%] h-fit relative flex justify-between shadow-lg">
             <div className="flex flex-col">
