@@ -51,7 +51,7 @@ export default function SelectPayment({reserve}: {reserve:string}){
       // console.log(profile)
     
     async function cardPayment() {
-      const stripe = await loadStripe('pk_test_51P6oXZHub7hok82f8hRRPD09HnSEtvidGSIY3RTjcjzncAKKsV5sOXL3F7IhvGS9cTmAaW75KuJuyqnr1LmkH9Fa00aLlfJ6tt');
+      const stripe = await loadStripe(`${process.env.STRIPE_PUBLIC_KEY}`);
 
       console.log("request payment")
 
@@ -78,7 +78,7 @@ export default function SelectPayment({reserve}: {reserve:string}){
 
     async function PromtpayPayment() {
 
-      const stripe = await loadStripe('pk_test_51P6oXZHub7hok82f8hRRPD09HnSEtvidGSIY3RTjcjzncAKKsV5sOXL3F7IhvGS9cTmAaW75KuJuyqnr1LmkH9Fa00aLlfJ6tt');
+      const stripe = await loadStripe(`${process.env.STRIPE_PUBLIC_KEY}`);
 
       if(session && session.user.token && reserveDetail){
         const PromtpayPaymentJson:Promise<PaymentJson> = await createPromtpay(session.user.token, reserveDetail.data._id);
