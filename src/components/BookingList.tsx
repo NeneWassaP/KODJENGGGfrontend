@@ -19,12 +19,12 @@ import updateReservationStatus from "@/libs/updateReservationStatus";
 import { useRouter } from "next/navigation";
 
 
-export default function BookingList ({session}:{session:any}) {
+export default function BookingList ({session, profile}:{session:any, profile:any}) {
 
     const router = useRouter();
 
-    const [showOptions, setShowOptions] = useState(false);
-    const [profile, setProfile] = useState<any>();
+    //const [showOptions, setShowOptions] = useState(false);
+    //const [profile, setProfile] = useState<any>();
 
     async function editStatus(token: string, rid:string,reserve:Reservation,status:string){
         //console.log(token);
@@ -87,18 +87,18 @@ export default function BookingList ({session}:{session:any}) {
 
     useEffect(() => {
         data()
-        const fetchData = async () => {
-            try {
-              if (session && session.user.token){
-                const userProfile = await getUserProfile(session.user.token);
-                setProfile(userProfile);
-              } 
-            } catch (error) {
-              console.error("Error fetching data:", error);
-            }
-          };
+        // const fetchData = async () => {
+        //     try {
+        //       if (session && session.user.token){
+        //         const userProfile = await getUserProfile(session.user.token);
+        //         setProfile(userProfile);
+        //       } 
+        //     } catch (error) {
+        //       console.error("Error fetching data:", error);
+        //     }
+        //   };
       
-          fetchData();
+        //   fetchData();
     }, []);
 
     return (
@@ -203,10 +203,3 @@ export default function BookingList ({session}:{session:any}) {
         </div>
     )
 }
-
-
-
-
-
-
-
