@@ -104,7 +104,7 @@ export default function SelectPayment({reserve}: {reserve:string}){
           {
             (reserveDetail) ?
             <div className="w-[100%] flex flex-col items-center space-y-4">
-              <div className="text-4xl font-semibold text-[#4D4C7D] underline mt-10">Payment Information</div>
+              <div className="text-4xl font-semibold text-[#363062] underline mt-10">Payment Information</div>
               <div className="text-3xl font-bold text-[#F99417] py-5">Your Deposit: {reserveDetail.data.totalPrice} Baht</div>
             
             <div className="bg-[#4D4C7D] my-10 rounded-lg w-[60%] h-fit relative flex justify-between shadow-lg">
@@ -130,7 +130,7 @@ export default function SelectPayment({reserve}: {reserve:string}){
                 )} 
             </div>             
             </div>
-            <div className="text-4xl font-semibold text-[#363062] mt-7 pt-7">Select Payment Method</div>
+            <div className="text-4xl font-semibold text-[#4D4C7D] mt-7 pt-7">Select Payment Method</div>
             <div className="text-xl font-light text-[#4D4C7D] my-7 w-[70%] text-center">
             This payment will include just total of your deposit and you will have to proceed the rest of your payment at your hotel the day you stay. Thank you for you understanding. 
             </div>

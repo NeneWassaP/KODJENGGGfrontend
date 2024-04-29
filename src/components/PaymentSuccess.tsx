@@ -14,17 +14,17 @@ export default function PaymentSuccess({reserve}: {reserve:string}){
     
     const router = useRouter();
     const { data:session } = useSession()
-    const [profile, setProfile] = useState<any>();
+    //const [profile, setProfile] = useState<any>();
     const [reserveDetail,setReserveDetails] = useState<ReserveOneJson>();
 
     useEffect(() => {
         const fetchData = async () => {
           try {
-            if (session && session.user.token){
-                console.log('lol');
-              const userProfile = await getUserProfile(session.user.token);
-              setProfile(userProfile);
-            }
+            // if (session && session.user.token){
+            //     console.log('lol');
+            //   const userProfile = await getUserProfile(session.user.token);
+            //   setProfile(userProfile);
+            // }
             if(session && session.user.token){
                 const [revJson] = await Promise.all([
                     getOneReservation(reserve,session.user.token)
@@ -45,7 +45,7 @@ export default function PaymentSuccess({reserve}: {reserve:string}){
       console.log('nowlhor')
       reserveDetail ?
       console.log(reserveDetail.data) : null
-      console.log(profile)
+      //console.log(profile)
 
     
     return (
@@ -57,11 +57,10 @@ export default function PaymentSuccess({reserve}: {reserve:string}){
             <div className="flex flex-col">
             <div className="w-full">
             <div className="text-lg p-4 m-2 relative  font-normal">
-                {profile && (
-                    <div>User: {profile.data.name}</div>
-                )}
+               
                 {reserveDetail && (
                     <div>
+                        <div>User: {reserveDetail.data.user.name}</div>
                         <div>Hotel: {reserveDetail.data.hotel.name}</div>
                         <div>Room Type: {}</div>
                         <div>Reservation date: {dayjs(reserveDetail.data.revDate).format("YYYY/MM/DD")}</div>

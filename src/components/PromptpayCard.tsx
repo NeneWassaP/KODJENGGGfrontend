@@ -14,16 +14,16 @@ import { ReserveJson, Reservation, ReserveOneJson, PaymentJson } from "interface
 export default function PromptpayCard({reserve}: {reserve:string}){
     const router = useRouter();
     const { data:session } = useSession()
-    const [profile, setProfile] = useState<any>();
+    //const [profile, setProfile] = useState<any>();
     const [reserveDetail,setReserveDetails] = useState<ReserveOneJson>();
 
     useEffect(() => {
         const fetchData = async () => {
           if(session && session.user.token){
             try {
-              console.log('lol');
-              const userProfile = await getUserProfile(session.user.token);
-              setProfile(userProfile);
+              // console.log('lol');
+              // const userProfile = await getUserProfile(session.user.token);
+              // setProfile(userProfile);
 
               const revJson:Promise<ReserveOneJson> = await getOneReservation(reserve,session.user.token);
               const revReady:ReserveOneJson = await revJson;
@@ -42,7 +42,7 @@ export default function PromptpayCard({reserve}: {reserve:string}){
     return(
         <main>
             {
-            (profile && reserveDetail) ?
+            (reserveDetail) ?
           <div>
             <div className="w-full mt-10">
                 <h1 className="text-[#363062] text-center mb-4 text-3xl font-bold mt-3" style={{ textDecoration: 'underline' }}>{reserveDetail.data.hotel.name}'s bank account detail</h1>
@@ -55,12 +55,7 @@ export default function PromptpayCard({reserve}: {reserve:string}){
               </div>
               <div className="text-center text-2xl font-semibold mb-2 text-[#939393]"> Scan to pay</div>
               <div className="text-center text-xl text-[#363062]"> {reserveDetail.data.hotel.paymentname} </div>
-              <div className="text-center text-xl mb-2 text-[#363062] "> xxx-x-x{reserveDetail.data.hotel.paymentnum}-x</div>
-
-              
-            
-
-              
+              <div className="text-center text-xl mb-2 text-[#363062] "> xxx-x-x{reserveDetail.data.hotel.paymentnum}-x</div>     
             </div>
             <div className="flex justify-center">
               <div className="w-[40%] grid grid-cols-2 gap-3 justify-center left-0 mt-6">

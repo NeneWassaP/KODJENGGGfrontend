@@ -20,7 +20,7 @@ export default function InsertSlipBox({reserve}: {reserve:string}){
 
     const router = useRouter();
     const { data:session } = useSession()
-    const [profile, setProfile] = useState<any>();
+    //const [profile, setProfile] = useState<any>();
     const [reserveDetail,setReserveDetails] = useState<ReserveOneJson>();
     const [image , setImage ] = useState("") ;
     const [revDate, setRevDate] = useState<Dayjs|null>(null);
@@ -129,9 +129,9 @@ export default function InsertSlipBox({reserve}: {reserve:string}){
         const fetchData = async () => {
           if(session && session.user.token){
             try {
-              console.log('lol');
-              const userProfile = await getUserProfile(session.user.token);
-              setProfile(userProfile);
+            //   console.log('lol');
+            //   const userProfile = await getUserProfile(session.user.token);
+            //   setProfile(userProfile);
 
               const revJson:Promise<ReserveOneJson> = await getOneReservation(reserve,session.user.token);
               const revReady:ReserveOneJson = await revJson;
@@ -158,11 +158,9 @@ export default function InsertSlipBox({reserve}: {reserve:string}){
             <div className="flex flex-col">
             <div className="w-full">
             <div className="text-lg mx-2 my-4 relative left-6  font-normal">
-                {profile && (
-                    <div>User: {profile.data.name}</div>
-                )}
                 {reserveDetail && (
                     <div>
+                        <div>User: {reserveDetail.data.user.name}</div>
                         <div>Hotel: {reserveDetail.data.hotel.name}</div>
                         <div>Room Type: {reserveDetail.data.room.roomtype}</div>
                         <div>Reservation date: {dayjs(reserveDetail.data.revDate).format("YYYY/MM/DD")}</div>
