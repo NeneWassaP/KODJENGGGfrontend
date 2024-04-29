@@ -10,9 +10,13 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import getUserProfile from "@/libs/getUserProfile";
 export default async function HospitalDetailPage({params}:{params:{hid:string}}){
     const sessionReady = await getServerSession(authOptions) ;
-    if ( !sessionReady || !sessionReady.user.token) return null
-
-    const profile = await getUserProfile(sessionReady.user.token)
+    var profile;
+    if ( !sessionReady || !sessionReady.user.token){
+        profile = null;
+    } else{
+        profile = await getUserProfile(sessionReady.user.token)
+    }
+    
     const hosDetail = await getHotel(params.hid)
     const roomDetail = await getRooms(params.hid)
 
