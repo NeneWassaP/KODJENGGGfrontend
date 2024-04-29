@@ -70,6 +70,7 @@ export default function SelectPayment({reserve}: {reserve:string}){
           })
         }
         catch(err){
+          console.log("Cannot redirect")
           console.log(err);
         }
   
