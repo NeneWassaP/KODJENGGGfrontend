@@ -62,10 +62,10 @@ export default function PaymentSuccess({reserve}: {reserve:string}){
                     <div>
                         <div>User: {reserveDetail.data.user.name}</div>
                         <div>Hotel: {reserveDetail.data.hotel.name}</div>
-                        <div>Room Type: {}</div>
+                        <div>Room Type: {reserveDetail.data.room.roomtype}</div>
                         <div>Reservation date: {dayjs(reserveDetail.data.revDate).format("YYYY/MM/DD")}</div>
                         <div>Total nights: {reserveDetail.data.nightNum}</div>
-                        <div>Total payment: {}</div>
+                        <div>Total payment: {reserveDetail.data.totalPrice}</div>
                     </div>
                 )}
             </div>

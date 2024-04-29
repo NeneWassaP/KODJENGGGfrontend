@@ -41,7 +41,7 @@ export default async function RecieptApprove({ session , payment}: { session: an
     // hour = ( hour + 7 ) % 24;
     // const realtime = hour + payTime.substring(2,19) ;
 
-    const profile = await getUserProfile(session.user.token);
+    //const profile = await getUserProfile(session.user.token);
     //console.log(profile?.data?.role)
 
 
@@ -123,7 +123,7 @@ export default async function RecieptApprove({ session , payment}: { session: an
 
     return (
         <div className="flex justify-center items-center">
-            {profile?.data?.role === "hotelmanager" ? (
+            {session.user.role === "hotelmanager" ? (
                 <main className="w-[50%]  flex flex-col items-center justify-center">
                     <div className="text-[#363062] text-[30px] font-extrabold text-center underline decortion-[#363062] underline-offset-[4px] my-[30px]">Payment Confirmation</div>
 
