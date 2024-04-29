@@ -10,7 +10,7 @@ export default async function ManageReservations({params}:{params:{rid:string}})
     
     if ( !sessionReady || !sessionReady.user.token) return null
     const payment = await getPayment(params.rid,sessionReady.user.token) ;
-    console.log(sessionReady.user.role)
+    console.log(sessionReady)
 
 
     return(

@@ -64,6 +64,7 @@ export default function InsertSlipBox({reserve}: {reserve:string}){
             fetch("http://localhost:5000/api/v1/payment", {
                 method: "POST",
                 headers: {
+                authorization : `Bearer ${session.user.token}`,
                 "Content-Type": "application/json",
                 Accept: "application/json",
                 "Access-Control-Allow-Origin": "*",
