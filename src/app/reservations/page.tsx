@@ -108,7 +108,7 @@ export default function Reservations(){
                                 <MenuItem value={room._id}>
                                     <div className="flex flex-row w-[100%] justify-between">
                                     <div className="mx-2 text-md font-semibold text-left text-[#363062]">{room.roomtype}</div>
-                                    <div className="mx-2 text-md font-semibold text-right text-[#363062]">{room.price} Bath</div>
+                                    <div className="mx-2 text-md font-semibold text-right text-[#363062]">{room.price} Baht</div>
                                     </div>
                                 </MenuItem>
                             ))
